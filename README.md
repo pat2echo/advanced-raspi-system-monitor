@@ -35,5 +35,5 @@ This tool collects enhanced metrics including CPU/GPU stats, disk I/O performanc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/advanced-raspi-system-monitor.git
+   git clone https://github.com/pat2echo/advanced-raspi-system-monitor.git
    cd advanced-raspi-system-monitor
