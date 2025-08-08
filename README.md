@@ -56,9 +56,9 @@ Check bus addresses
 
 ### OTHER DEVICES, SKIP TO HERE
 1. CLONE REPO
-   ```
-   git clone https://github.com/pat2echo/advanced-raspi-system-monitor.git
-   cd advanced-raspi-system-monitor
+```
+git clone https://github.com/pat2echo/advanced-raspi-system-monitor.git
+cd advanced-raspi-system-monitor
 ```
 
 2. INSTALL DEPENDENCIES
@@ -73,7 +73,7 @@ python3 -m venv ~/venv
 source ~/venv/bin/activate
 pip install pi-ina219
 
-# OPTIONAL: VERIFY INSTALLATION
+#OPTIONAL: VERIFY INSTALLATION
 pip list
 ```
 
@@ -83,7 +83,6 @@ chmod +x features_reader.sh
 ```
 
 6. GO TO RUN LOGGER IN SUBSEQUENT USAGE SECTION
-7. 
 
 
 ## Subsequent Usage
