@@ -31,9 +31,79 @@ This tool collects enhanced metrics including CPU/GPU stats, disk I/O performanc
 
 ---
 
-## Usage
+## First Time Setup
+```
+sudo apt update
+sudo apt install hdparm
+sudo apt install python3-pip i2c-tools -y
 
-1. Clone the repository:
-   ```bash
+# work-in-progress
+sudo apt full-upgrade -y
+sudo rpi-update
+sudo reboot
+```
+
+### OPTIONAL, ENABLE I2C FEATURE ON RASPBERRY PI (work-in-progress)
+This will facilitate reading power values  
+`sudo raspi-config`  
+Go to: Interface Options > I2C > Enable  
+Reboot: `sudo reboot`
+
+Check bus addresses  
+`ls /dev/i2c*`
+
+
+
+### OTHER DEVICES, SKIP TO HERE
+1. CLONE REPO
+   ```
    git clone https://github.com/pat2echo/advanced-raspi-system-monitor.git
    cd advanced-raspi-system-monitor
+```
+
+2. INSTALL DEPENDENCIES
+```
+sudo apt update
+sudo apt install python3-venv -y
+```
+
+3. CREATE VIRTUAL PYTHON ENVIRONMENT
+```
+python3 -m venv ~/venv
+source ~/venv/bin/activate
+pip install pi-ina219
+
+# OPTIONAL: VERIFY INSTALLATION
+pip list
+```
+
+4. MAKE SCRIPT EXECUTABLE
+```
+chmod +x features_reader.sh
+```
+
+6. GO TO RUN LOGGER IN SUBSEQUENT USAGE SECTION
+7. 
+
+
+## Subsequent Usage
+1. ACCESS VIRTUAL ENV
+```
+cd advanced-raspi-system-monitor/
+source ~/venv/bin/activate
+```
+
+2. RUN LOGGER
+Run in foreground
+```
+sudo ./features_reader.sh
+```
+OR
+
+Run in background, but use sudo privileges otherwise disk read/write speed may fail due to insufficient privilege
+```
+nohup ./features_reader.sh &
+
+# monitor progress aas data is written to csv file
+tail -f ic_advanced_metrics_log.csv
+```
